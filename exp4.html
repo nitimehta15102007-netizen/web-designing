@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Experiment 4 SEO and Accessibility Optimized Page</title>
+  <meta name='description' content='College experiment showing SEO and accessibility optimization with semantic HTML, heading structure, and meta tags.'>
+  <meta name='keywords' content='SEO, accessibility, semantic HTML, heading structure, meta tags, college experiment'>
+  <meta name='author' content='Niti Mehta'>
+  <meta name='robots' content='index,follow'>
+  <meta property='og:title' content='Experiment 4 SEO and Accessibility'>
+  <meta property='og:description' content='Semantic and accessible webpage with proper headings and SEO tags.'>
+  <meta name='twitter:card' content='summary'>
+  <link rel='canonical' href='https://example.com/exp4.html'>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg2: #131a33;
+      --card: rgba(18, 27, 48, 0.85);
+      --text: #f6f8ff;
+      --muted: #acb7d6;
+      --brand: #39d8ff;
+      --line: rgba(255, 255, 255, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 10%, #1e2a56 0, transparent 35%),
+        radial-gradient(circle at 88% 0, #34174e 0, transparent 34%),
+        linear-gradient(150deg, var(--bg), var(--bg2));
+    }
+
+    .container {
+      width: min(1020px, 92%);
+      margin: auto;
+    }
+
+    .skip {
+      position: absolute;
+      left: 10px;
+      top: -50px;
+      background: #fff;
+      color: #111;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    .skip:focus {
+      top: 10px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(9, 13, 26, 0.8);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid transparent;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 0.9rem;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      border-color: rgba(57, 216, 255, 0.65);
+      background: rgba(57, 216, 255, 0.14);
+      outline: none;
+    }
+
+    main {
+      padding: 28px 0 40px;
+    }
+
+    section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(1.2rem, 2.8vw, 1.7rem);
+    }
+
+    h2 {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      margin-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    p,
+    li,
+    td {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+    }
+
+    ul.check {
+      list-style: none;
+      margin-top: 6px;
+    }
+
+    ul.check li::before {
+      content: '✔ ';
+      color: #6be0a3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    th,
+    td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 8px;
+      font-size: 0.92rem;
+    }
+
+    form {
+      display: grid;
+      gap: 8px;
+    }
+
+    label {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      font: inherit;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 9px 10px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus,
+    button:focus-visible {
+      outline: none;
+      border-color: rgba(57, 216, 255, 0.8);
+      box-shadow: 0 0 0 3px rgba(57, 216, 255, 0.18);
+    }
+
+    textarea {
+      min-height: 100px;
+    }
+
+    button {
+      width: fit-content;
+      border: none;
+      border-radius: 10px;
+      padding: 9px 14px;
+      font-weight: 600;
+      color: #071420;
+      background: linear-gradient(95deg, var(--brand), #8cc5ff);
+      cursor: pointer;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 16px 0 26px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 850px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class='skip' href='#main-content'>Skip to main content</a>
+
+  <header>
+    <div class='container top'>
+      <div>
+        <p>Web Development Lab</p>
+        <h1>Experiment 4: SEO and Accessibility Optimization</h1>
+      </div>
+      <nav aria-label='Primary navigation'>
+        <ul>
+          <li><a href='#overview'>Overview</a></li>
+          <li><a href='#improvements'>Improvements</a></li>
+          <li><a href='#audit'>Audit</a></li>
+          <li><a href='#feedback'>Feedback</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id='main-content' class='container'>
+    <section id='overview' aria-labelledby='overview-title'>
+      <h2 id='overview-title'>Project Overview</h2>
+      <p>This page demonstrates SEO and accessibility improvements using semantic HTML landmarks, proper heading structure, descriptive metadata, and accessible form controls.</p>
+    </section>
+
+    <section id='improvements' aria-labelledby='improvements-title'>
+      <h2 id='improvements-title'>Implemented Improvements</h2>
+      <div class='grid'>
+        <article class='card'>
+          <h3>Semantic HTML</h3>
+          <ul class='check'>
+            <li>Used header, nav, main, section, article, and footer</li>
+            <li>Added accessible form labels</li>
+            <li>Used table header scope and caption</li>
+          </ul>
+        </article>
+
+        <article class='card'>
+          <h3>Heading Hierarchy</h3>
+          <ul class='check'>
+            <li>Single H1 for the page topic</li>
+            <li>H2 for major sections</li>
+            <li>H3 for subsection cards</li>
+          </ul>
+        </article>
+
+        <article class='card'>
+          <h3>SEO Meta Tags</h3>
+          <ul class='check'>
+            <li>Title and description tags</li>
+            <li>Robots and canonical tags</li>
+            <li>Open Graph and Twitter tags</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id='audit' aria-labelledby='audit-title'>
+      <h2 id='audit-title'>Optimization Audit Table</h2>
+      <table>
+        <caption>Before and After Snapshot</caption>
+        <thead>
+          <tr>
+            <th scope='col'>Category</th>
+            <th scope='col'>Before</th>
+            <th scope='col'>After</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope='row'>Structure</th>
+            <td>Mostly div blocks</td>
+            <td>Semantic landmarks</td>
+          </tr>
+          <tr>
+            <th scope='row'>Headings</th>
+            <td>Inconsistent levels</td>
+            <td>Logical H1 H2 H3 flow</td>
+          </tr>
+          <tr>
+            <th scope='row'>Meta Data</th>
+            <td>Only basic title</td>
+            <td>SEO and social preview tags</td>
+          </tr>
+          <tr>
+            <th scope='row'>Accessibility</th>
+            <td>Weak keyboard support</td>
+            <td>Skip link, focus styles, and labels</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id='feedback' aria-labelledby='feedback-title'>
+      <h2 id='feedback-title'>Accessible Feedback Form</h2>
+      <form action='#' method='post'>
+        <label for='name'>Name</label>
+        <input id='name' name='name' type='text' autocomplete='name' required>
+
+        <label for='email'>Email</label>
+        <input id='email' name='email' type='email' autocomplete='email' required>
+
+        <label for='topic'>Feedback Topic</label>
+        <select id='topic' name='topic' required>
+          <option value=''>Choose one</option>
+          <option value='seo'>SEO</option>
+          <option value='accessibility'>Accessibility</option>
+          <option value='both'>Both</option>
+        </select>
+
+        <label for='message'>Comments</label>
+        <textarea id='message' name='message' aria-describedby='help'></textarea>
+        <p id='help'>Mention any further improvements for this page.</p>
+
+        <button type='submit'>Submit Feedback</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    Experiment 4 submission by Niti Mehta for SEO and accessibility optimization
+  </footer>
+</body>
+</html>
